@@ -91,11 +91,11 @@ Host dotfiles.github.com
   IdentityFile C:/Users/xxx/.ssh/id_rsa_dotfiles
 ```
 The config file playes the magic.
-If we communicate with git to gitHub: push, pull, ect
-**Then the config file does a redirection:** 
+If we communicate with git to gitHub: push, pull, ect 
+**Then the config file does a redirection:**  
 git@dotfiles.github.com:bartgeier/dotfiles.git 
-becomes to:
-git@github.com:bartgeier/dotfiles.git 
+becomes to: 
+git@github.com:bartgeier/dotfiles.git  
 
 ![](pictures/sshdir.JPG) 
 
@@ -117,8 +117,8 @@ PS C:\Projekts\Linux\dotfiles>
 ```
 Or if your repo not exist yet. Create it:
 
-git init
-git remote add origin git@dotfiles.gihub.com:bartgeier/dotfiles.git
-git pull origin master
+git init 
+git remote add origin git@dotfiles.gihub.com:bartgeier/dotfiles.git 
+git pull origin master 
 
 
