@@ -9,7 +9,7 @@ A second solution is to give the user one key to access only one repo.
 Every repo has it's own keys.
 
 This document discribed the second solution.
-If you go along the way with the second solution, the simple solution is then not
+If you go along the way with the second solution, then the simple solution is not
 anymore possible. So you have to make a decision.
 
 As an example I use my Linux dofiles project on a Windows computer.
