@@ -19,6 +19,8 @@ DistroTube Git Bare Repository - A Better Way To Manage Dotfiles
 https://youtu.be/tBoLDpTWVOM  
 https://www.atlassian.com/git/tutorials/dotfiles  
 
+This document is intended as a cheat sheet fo myself.
+Because this stuff is really confusing. 😉 
 # Microsoft Windows 10
 
 Windows key write services.exe
@@ -58,9 +60,9 @@ The key's randomart image is:
 +----[SHA256]-----+
 PS C:\Users\xxx>
 ```
-Two Files are created:
-private key: id_rsa_dotfiles
-public key:  id_rsa_dotfiles.pub
+Two Files are created:  
+private key: id_rsa_dotfiles  
+public key:  id_rsa_dotfiles.pub  
 
 ## Deploy key on your Github repo
 
