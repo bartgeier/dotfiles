@@ -13,7 +13,7 @@ If you go along the way with the second solution. The simple solution is not
 anymore possible. So you have to make a decision.
 
 As an example I use my Linux dofiles project on a Windows computer.
-By the way on my Linux computer I use a git bare repository to manage my dotfiles.  
+On my Linux computer I use a git bare repository to manage my dotfiles.  
 see:  
 DistroTube Git Bare Repository - A Better Way To Manage Dotfiles  
 https://youtu.be/tBoLDpTWVOM  
