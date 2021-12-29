@@ -64,6 +64,8 @@ Two Files are created:
 private key: id_rsa_dotfiles  
 public key:  id_rsa_dotfiles.pub  
 
+Never ever save the key files in your repo. 😱
+
 ## Deploy key on your Github repo
 
 Copy the content of the public Key "id_rsa_dotfiles.pub" into your Github repo.
