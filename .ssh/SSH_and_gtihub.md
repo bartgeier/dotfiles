@@ -90,18 +90,18 @@ Host dotfiles.github.com
   AddKeysToAgent yes
   IdentityFile C:/Users/xxx/.ssh/id_rsa_dotfiles
 ```
-The config file playes the magic.
-If we communicate with git to gitHub: push, pull, ect 
+The config file playes the magic.  
+If we communicate with git to gitHub: push, pull, ect  
 **Then the config file does a redirection:**  
-git@dotfiles.github.com:bartgeier/dotfiles.git 
-becomes to: 
+git@dotfiles.github.com:bartgeier/dotfiles.git  
+becomes to:  
 git@github.com:bartgeier/dotfiles.git  
 
 ![](pictures/sshdir.JPG) 
 
 # Rename url in your git project
 
-Jump into dotfiles project directory.
+Jump into dotfiles project directory.  
 This renaming is nesseccary to get the redirection work.
 ```
 PS C:\Projekts\Linux\dotfiles> git remote -v
@@ -117,8 +117,8 @@ PS C:\Projekts\Linux\dotfiles>
 ```
 Or if your repo not exist yet. Create it:
 
-git init 
-git remote add origin git@dotfiles.gihub.com:bartgeier/dotfiles.git 
-git pull origin master 
+git init  
+git remote add origin git@dotfiles.gihub.com:bartgeier/dotfiles.git  
+git pull origin master  
 
 
