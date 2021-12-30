@@ -14,6 +14,7 @@ SCRIPTS=$HERB/scripts
 
 #Set wallpaper/background
 #feh --bg-center /usr/share/wallpaper/pylons.jpg
+nitrogen --restore &
 xsetroot -solid '#444444'
 
 # autostart daemons'n'stuff
