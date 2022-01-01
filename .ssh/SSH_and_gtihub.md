@@ -1,17 +1,17 @@
 # ssh Key and Github – repository
 
 A simple solution is to associate an ssh key with the user so that the user
-has acces to all repos (in the github profile). In the .ssh directory is no
-config means no redirection and therefore it used the standart id_rsa and
+has acces to all repos (in the github profile). In the .ssh directory there is
+no config which means no redirection and therefore it uses the standard id_rsa and
 id_rsa.pub files.
 
 A second solution is to give the user one key to access only one repo. 
-Every repo has it's own keys.
+Every repo has its own keys.
 
-This document discribed the second solution.
-If you go along the way with the second solution. The simple solution is not
-anymore possible. So you have to make a decision. As an example I use here my 
-Linux dofiles project on a Windows computer.
+This document describes the second solution.
+If you go with the second solution the simple solution is not possible
+anymore. So you have to make a decision. As an example I will use my Linux 
+dotfiles project on a Windows computer.
 
 On my Linux computer I use a git bare repository to manage my dotfiles.  
 see:  
@@ -19,18 +19,18 @@ DistroTube Git Bare Repository - A Better Way To Manage Dotfiles
 https://youtu.be/tBoLDpTWVOM  
 https://www.atlassian.com/git/tutorials/dotfiles  
 
-This document is intended as a cheat sheet fo myself.
+This document is intended as a cheat sheet for myself.
 Because this stuff is really confusing. 😉 
 # Microsoft Windows 10
 
 Windows key write services.exe
-Do this settings and restart your computer.
+Apply these settings and restart your computer.
 ![](pictures/WinServices.JPG)
 ![](pictures/Starttype.JPG)
 
 # SSH Key
 
-Use powershell and jump into your .ssh directory.
+Use powershell and go into your .ssh directory.
 PS C:\> cd C:\Users\xxx\\.ssh
 
 ## Generate key
@@ -95,19 +95,19 @@ Host dotfiles.github.com
   AddKeysToAgent yes
   IdentityFile C:/Users/xxx/.ssh/id_rsa_dotfiles
 ```
-The config file playes the magic.  
-If we communicate with git to gitHub: push, pull, ect  
+The config file playes does the magic.  
+If we communicate with git to gitHub: push, pull, etc. 
 **Then the config file does a redirection:**  
 git@dotfiles.github.com:bartgeier/dotfiles.git  
-becomes to:  
+becomes:  
 git@github.com:bartgeier/dotfiles.git  
 
 ![](pictures/sshdir.JPG) 
 
 # Rename url in your git project
 
-Jump into dotfiles project directory.  
-This renaming is nesseccary to get the redirection work.
+Go to the dotfiles project directory.  
+This renaming is necessary to get the redirection to work.
 ```
 PS C:\Projekts\Linux\dotfiles> git remote -v
 origin  git@github.com:bartgeier/dotfiles.git (fetch)
@@ -120,7 +120,7 @@ PS C:\Projekts\Linux\dotfiles> git push
 Everything up-to-date
 PS C:\Projekts\Linux\dotfiles>
 ```
-Or if your repo not exist yet. Create it:
+Or if your repo does not exist yet, create it:
 
 git init  
 git remote add origin git@dotfiles.gihub.com:bartgeier/dotfiles.git  
