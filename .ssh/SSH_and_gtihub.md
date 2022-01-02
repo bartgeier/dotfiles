@@ -108,7 +108,7 @@ git@github.com:bartgeier/dotfiles.git
 
 Go to the dotfiles project directory.  
 This renaming is necessary to get the redirection to work.
-```
+```powershell
 PS C:\Projekts\Linux\dotfiles> git remote -v
 origin  git@github.com:bartgeier/dotfiles.git (fetch)
 origin  git@github.com:bartgeier/dotfiles.git (push)
