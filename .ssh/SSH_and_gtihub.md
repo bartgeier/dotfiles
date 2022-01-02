@@ -96,7 +96,7 @@ Host dotfiles.github.com
   IdentityFile C:/Users/xxx/.ssh/id_rsa_dotfiles
 ```
 The config file does the magic.  
-If we communicate with git to gitHub: push, pull, etc. 
+If we communicate with git to gitHub: push, pull, etc.  
 **Then the config file does a redirection:**  
 git@dotfiles.github.com:bartgeier/dotfiles.git  
 becomes:  
