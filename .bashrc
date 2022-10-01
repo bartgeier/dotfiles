@@ -470,4 +470,4 @@ unset bash_prompt
 
 
 ### EOF ###
-alias config='/usr/bin/git --git-dir=/home/berni/dotfiles --work-tree=/home/berni'
+alias ggit='/usr/bin/git --git-dir=/home/berni/dotfiles --work-tree=/home/berni'
