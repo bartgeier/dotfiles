@@ -4,7 +4,8 @@
 # https://itsfoss.com/install-deb-files-ubuntu/
 
 # sudo apt install program1 program2 program3 -y
-sudo apt install tmux
+sudo apt update && sudo apt upgrade
+sudo apt install tmux htop wmctrl
 
 # https://snapcraft.io/store
 # sudo snap install snappackage1 snappackage2 snappackage3
