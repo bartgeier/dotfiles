@@ -5,7 +5,7 @@
 
 # sudo apt install program1 program2 program3 -y
 sudo apt update && sudo apt upgrade
-sudo apt install git tmux htop wmctrl
+sudo apt install git tmux htop wmctrl xdotool
 
 # https://snapcraft.io/store
 # sudo snap install snappackage1 snappackage2 snappackage3
