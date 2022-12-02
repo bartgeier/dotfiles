@@ -18,3 +18,4 @@ sudo snap install anki-woodrow
 # https://flathub.org/home
 # sudo flatpak install flatpak1 flatpak2 flatpak3 -y
 
+# test
