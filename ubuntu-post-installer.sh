@@ -11,7 +11,7 @@ sudo apt install git tmux htop wmctrl keepass2 xdotool
 
 # https://snapcraft.io/store
 # sudo snap install snappackage1 snappackage2 snappackage3
-sudo snap install umlet-standalone
+sudo snap install umlet-standalone whatsapp-for-linux anki-woodrow
 
 # https://flathub.org/home
 # sudo flatpak install flatpak1 flatpak2 flatpak3 -y
