@@ -96,7 +96,7 @@ alias cd~='cd ~'
 alias cd-='cd -'
 alias cd..='cd ..'
 alias cd.='cd ~'
-alias .='cd ~'
+alias .='cd ~' #bash: cd: too many arguments => because . is synonym for the source command
 alias .-='cd -'
 alias ..='cd ..'
 
