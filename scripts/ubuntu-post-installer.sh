@@ -7,7 +7,7 @@
 # wmctrl see .config/mv_win_to_workspace.sh
 # xdotool  autokeytype
 sudo apt update && sudo apt upgrade
-sudo apt install git tmux htop wmctrl keepass2 xdotool
+sudo apt install git tmux htop wmctrl keepass2 xdotool shellcheck
 
 # https://snapcraft.io/store
 # sudo snap install snappackage1 snappackage2 snappackage3
