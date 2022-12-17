@@ -8,6 +8,7 @@
 # xdotool  autokeytype
 sudo apt update && sudo apt upgrade
 sudo apt install git tmux htop wmctrl keepass2 xdotool shellcheck
+sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen # neovim dependencys
 
 # https://snapcraft.io/store
 # sudo snap install snappackage1 snappackage2 snappackage3
