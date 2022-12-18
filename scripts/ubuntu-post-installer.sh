@@ -7,7 +7,7 @@
 # wmctrl see .config/mv_win_to_workspace.sh
 # xdotool  autokeytype
 sudo apt update && sudo apt upgrade
-sudo apt install git tmux htop wmctrl keepass2 xdotool shellcheck
+sudo apt install git tmux htop wmctrl keepass2 xdotool shellcheck ripgrep
 sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen # neovim dependencys
 
 # https://snapcraft.io/store
