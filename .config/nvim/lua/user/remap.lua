@@ -14,7 +14,7 @@ o.scrolloff = 8 -- number of screen lines to keep above and below the cursor
 o.number = true
 o.numberwidth = 5
 o.relativenumber = true
-o.signcolumn = 'yes:2'
+ncolumn = 'yes:2'
 o.cursorline = true
 
 -- better editing experience
@@ -76,11 +76,13 @@ map('n', '<c-e>', '<c-y>k')  -- scroll one line page dn cursor dn
 map('n', '<C-j>', '<cmd>m .+1<CR>==')
 map('n', '<C-k>', '<cmd>m .-2<CR>==')
 map('i', '<C-j>', '<esc><cmd>m .+1<CR>==gi')
-map('i', '<C-k>', '<esc><cmd>m .g-2<CR>==gi')
+map('i', '<C-k>', '<esc><cmd>m .-2<CR>==gi')
 map('v', '<C-j>', ":m '>+1<CR>gv=gv")
 map('v', '<C-k>', ":m '<-2<CR>gv=gv")
 map("v", "<C-h>", "<gv", opts)
 map("v", "<C-l>", ">gv", opts)
+map("i", "<C-h>", "<C-d>", opts)
+map("i", "<C-l>", "<C-t>", opts)
 
 -- Create breaks points for undo U
 map('i', ',', ',<C-g>u') 
@@ -101,9 +103,10 @@ map('n', '<A-k>', '<C-w>k')
 -- source init.lua
 map('n', '<leader>vv', '<cmd>luafile $MYVIMRC<CR>')
 -- map('n', '<leader>g', '<cmd>vsplit ~/.config.nvmim/init.lua<CR>')
-
-map('n', '<leader>e', ':Lex 30<CR>') -- file explorer
+map('n', '<leader>e', ':Ex. <CR>') -- file explorer
 
 -- ctrl s save file
 map('i', '<c-s>', '<ESC>:w<CR>')
 map('n', '<c-s>', ':w<CR>')
+
+
