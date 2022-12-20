@@ -60,9 +60,10 @@ map('i', '<c-Space>', '<ESC>')
 map('v', '<c-Space>', '<ESC>')
 
 -- copy and past clipboard
-map('v', '<C-c>', '"+y')       -- copy selected into desktop clipboard
-map('n', '<C-p>', '"+p')       -- paste desktop clipboard into vim
-map('x', "<leader>p", "\"_dP") -- replaced text without losing the paste
+map('v', '<C-c>', '"+y')    -- copy selected into desktop clipboard
+map('n', '<C-p>', '"+p')    -- paste desktop clipboard into vim
+map('x', "p","\"_dP")       -- replaced text without losing the paste
+map('x', "<leader>p", 'p')  -- replaced text wit exchange the paste
 
 -- Fix and keeping cursor in postion
 map('n', 'n', 'nzzzv')       -- jump to next search dn
