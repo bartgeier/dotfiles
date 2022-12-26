@@ -29,6 +29,7 @@ o.shiftwidth = 0
 o.softtabstop = -1 -- if negative, shiftwidth value is used
 o.list = true
 o.listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂'
+o.laststatus = 3 -- thin line between splits instead a statusbar
 
 o.clipboard = 'unnamedplus' -- neovim and os clipboard play nicely with each other
 

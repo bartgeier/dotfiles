@@ -33,7 +33,7 @@ def string(num):
 
 def terminal_output(file, actual, new):
         print(file)
-        print(f'Permission changed from {actual} {string(actual)} to {new} {string(new)}')
+        print(f'permission changed from {actual} {string(actual)} to {new} {string(new)}')
 
 if len(sys.argv) < 3:
         print('Too few arguments')
