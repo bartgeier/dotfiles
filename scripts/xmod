@@ -2,6 +2,7 @@
 
 # Use  https://www.regextester.com/
 # for regex experiments
+# install it with => sudo cp xmod /usr/local/bin/xmod
 
 import sys
 import os
