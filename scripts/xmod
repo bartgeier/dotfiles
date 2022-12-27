@@ -8,7 +8,7 @@ import sys
 import os
 import re 
 
-def nn(group, default):
+def nnn(group, default):
         r = 0
         w = 0
         x = 0
@@ -31,25 +31,53 @@ def string(num):
                 else: s += '-'
         return s
 
+def terminal_output_help():
+    print(\
+'''😵 I think you need a little bit help:
+    xmod is just another chmod command 
+    with a different syntax for the permission input.
+
+Examples:
+    xmod ,rwx,rwx,rwx, testfile => the same as chmod 777 testfile
+    xmod ,,rwx,, testfile       => the same as chmod 070 testfile
+    xmod rwx,rwx,rwx testfile   => the same as chmod 777 testfile
+    xmod rw,rw,r testfile       => the same as chmod 664 testfile
+
+The equal = character:
+    The "user", "group" and "other" don't change if an "=" is used.
+    Asume our testfile has a permission of 777 
+    xmod ,=,=,=, testfile       => testfile permission 777 has not changed 
+    xmod =,=,rx testfile        => testfile permission is now 775 ''')
+
 def terminal_output(file, actual, new):
         print(file)
-        print(f'permission changed from {actual} {string(actual)} to {new} {string(new)}')
+        if actual != new:
+            print(f'🙂 Permission changed from {actual} {string(actual)} to {new} {string(new)}')
+        else:
+            print(f"☹️  Permission is still {new} {string(new)}")
 
 if len(sys.argv) < 3:
-        print('Too few arguments')
+        print('Too few arguments!')
+        print()
+        terminal_output_help()
         quit()
 elif len(sys.argv) > 3:
-        print('Too many arguments')
+        print('Too many arguments!')
+        print()
+        terminal_output_help()
         quit()
 wanted_permission = sys.argv[1]
 file = sys.argv[2]
 old_permission = oct(os.stat(file).st_mode)[-3:]
 new_permission = ''
-m = re.search(',{0,1}([=rwx]{0,3}),{0,1}([=rwx]{0,3}),{0,1}([=rwx]{0,3})', wanted_permission)
+m = re.search('^,{0,1}([=rwx]{0,3}),{0,1}([=rwx]{0,3}),{0,1}([=rwx]{0,3}),{0,1}$', wanted_permission)
 if m != None:
         for group, i in zip(m.groups(), range(3)):
-                new_permission += nn(group, old_permission[i])
+                new_permission += nnn(group, old_permission[i])
         os.chmod(file, int(new_permission, base=8))
         terminal_output(file, old_permission, new_permission)
 else:
-        print('No regex matched')
+        print('No regex matched!')
+        print()
+        terminal_output_help()
+
