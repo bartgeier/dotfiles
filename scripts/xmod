@@ -8,6 +8,7 @@ import sys
 import os
 import re 
 
+
 def nnn(group, default):
         r = 0
         w = 0
@@ -68,16 +69,21 @@ elif len(sys.argv) > 3:
         quit()
 wanted_permission = sys.argv[1]
 file = sys.argv[2]
+if not os.path.exists(file):
+        print(file + " => 😭 File doesn't exist!")
+        print()
+        terminal_output_help()
+        quit()
 old_permission = oct(os.stat(file).st_mode)[-3:]
 new_permission = ''
 m = re.search('^,{0,1}([=rwx]{0,3}),{0,1}([=rwx]{0,3}),{0,1}([=rwx]{0,3}),{0,1}$', wanted_permission)
 if m != None:
-        for group, i in zip(m.groups(), range(3)):
-                new_permission += nnn(group, old_permission[i])
+    for group, i in zip(m.groups(), range(3)):
+        new_permission += nnn(group, old_permission[i])
         os.chmod(file, int(new_permission, base=8))
         terminal_output(file, old_permission, new_permission)
 else:
-        print('No regex matched!')
-        print()
-        terminal_output_help()
+    print('No regex matched!')
+    print()
+    terminal_output_help()
 
