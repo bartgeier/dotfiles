@@ -26,17 +26,18 @@ o.wrap = true
 o.textwidth = 300
 o.tabstop = 8
 o.shiftwidth = 0
-o.softtabstop = -1 -- if negative, shiftwidth value is used
+o.softtabstop = -1   -- if negative, shiftwidth value is used
 o.list = true
 o.listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂'
-o.laststatus = 3 -- thin line between splits instead a statusbar
+o.laststatus = 3     -- thin line between splits instead a statusbar
+o.colorcolumn = "80" -- marks column 80
 
 o.clipboard = 'unnamedplus' -- neovim and os clipboard play nicely with each other
 
-o.ignorecase = true -- case insensitive searching unless /c or capital in search
+o.ignorecase = true  -- case insensitive searching unless /c or capital in search
 o.smartcase = true
 
-o.backup = false -- undo and backup options 
+o.backup = false     -- undo and backup options 
 o.writebackup = false 
 o.undofile = true 
 o.swapfile = false 
@@ -44,7 +45,7 @@ o.swapfile = false
 -- o.directory = '/tmp/'
 -- o.undodir = '/tmp/'
 
-o.history = 50 -- remember 50 items in commandline history
+o.history = 50       -- remember 50 items in commandline history
 
 -- better buffer splitting
 o.splitright = true 
