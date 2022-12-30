@@ -132,7 +132,7 @@ vim.keymap.set('i', '<c-s>', '<ESC>:w<CR>')
 vim.keymap.set('v', '<c-s>', '<ESC>:w<CR>')
 
 -- source init.lua
-vim.keymap.set('n', '<leader>vv', '<cmd>luafile $MYVIMRC<CR>')
+vim.keymap.set('n', '<leader>vv', '<cmd>edit $MYVIMRC<CR>')
 -- vim.keymap.set('n', '<leader>g', '<cmd>vsplit ~/.config.nvmim/init.lua<CR>')
 vim.keymap.set('n', '<leader>e', ':Ex. <CR>') -- file explorer
 
