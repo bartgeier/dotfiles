@@ -74,7 +74,7 @@ file = sys.argv[2]
 m = re.search('^,{0,1}([=rwx]{0,3}),{0,1}([=rwx]{0,3}),{0,1}([=rwx]{0,3}),{0,1}$', wanted_permission)
 
 if m == None and not os.path.exists(file):
-        print('No reges matched and')
+        print('No regex matched and')
         print(file)
         print("file doesn't exist!")
         print()
