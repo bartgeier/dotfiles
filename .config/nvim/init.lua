@@ -133,13 +133,13 @@ vim.keymap.set('v', '<c-s>', '<ESC>:w<CR>')
 
 -- source init.lua
 vim.keymap.set('n', '<leader>vv', '<cmd>edit $MYVIMRC<CR>')
--- vim.keymap.set('n', '<leader>g', '<cmd>vsplit ~/.config.nvmim/init.lua<CR>')
+
 vim.keymap.set('n', '<leader>e', ':Ex. <CR>') -- file explorer
 
 -- copy and past clipboard
-vim.keymap.set('v', '<c-c>', '"+y')    -- copy selected into desktop clipboard
-vim.keymap.set('n', '<c-c>', '"+y')    -- copy selected into desktop clipboard
-vim.keymap.set('n', '<c-p>', '"+p')    -- paste desktop clipboard into vim
+-- vim.keymap.set('v', '<c-c>', '"+y')    -- copy selected into desktop clipboard
+-- vim.keymap.set('n', '<c-c>', '"+y')    -- copy selected into desktop clipboard
+-- vim.keymap.set('n', '<c-p>', '"+p')    -- paste desktop clipboard into vim
 vim.keymap.set('x', "p","\"_dp")       -- replaced text without losing the paste
 vim.keymap.set('x', "<leader>p", 'p')  -- replaced text wit exchange the paste
 
