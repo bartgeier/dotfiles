@@ -43,7 +43,7 @@ Examples:
     xmod rwx,rwx,rwx testfile   => the same as chmod 777 testfile
     xmod rw,rw,r testfile       => the same as chmod 664 testfile
 
-The equal = character:
+The equal "=" character:
     The "user", "group" and "other" don't change if an "=" is used.
     Asume our testfile has a permission of 777 
     xmod ,=,=,=, testfile       => testfile permission 777 has not changed 
