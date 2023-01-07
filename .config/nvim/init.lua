@@ -123,8 +123,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- switch into normal mod 
-vim.keymap.set('i', '<c-Space>', '<ESC>')
-vim.keymap.set('v', '<c-Space>', '<ESC>')
+-- vim.keymap.set('i', '<c-Space>', '<ESC>')
+-- vim.keymap.set('v', '<c-Space>', '<ESC>')
 
 -- Ctrl s save file
 vim.keymap.set('n', '<c-s>', ':w<CR>')
