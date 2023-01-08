@@ -27,6 +27,7 @@ require('packer').startup(function()
         use('nvim-treesitter/playground')
         use('theprimeagen/harpoon')
         use('ThePrimeagen/vim-be-good')
+        use('mbbill/undotree')
         if is_bootstrap then
                 require('packer').sync()
         end
@@ -108,7 +109,8 @@ vim.opt.undofile = true
 vim.opt.swapfile = false 
 --- vim.opt.backupdir = '/tmp/'
 --- vim.opt.directory = '/tmp/'
---- vim.opt.undodir = '/tmp/'
+vim.opt.undodir = os.getenv("HOME") .."/.vim/undodir"
+vim.opt.undofile = true
 
 vim.opt.history = 50       -- remember 50 items in commandline history
 
@@ -210,3 +212,4 @@ vim.keymap.set('n', '<leader>7', function() ui.nav_file(7) end)
 vim.keymap.set('n', '<leader>8', function() ui.nav_file(8) end)
 vim.keymap.set('n', '<leader>9', function() ui.nav_file(9) end)
 
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
