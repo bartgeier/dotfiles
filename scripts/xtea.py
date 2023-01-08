@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+# install it with => sudo cp xmod /usr/local/bin/xtea.py
+
 import sys
 from ctypes import *
 
@@ -105,7 +109,7 @@ if __name__ == "__main__":
         str = ' '.join(sys.argv[1:])
         key = [2802116239,3661675230,1810895124,447663303] # key size has to be 4 uint32_t
         secret = encode(str,key)
-        print(f'/* {str} */')
+        print(f'/*python3 xtea.py {str}*/')
         s = ','.join(x.__str__() for x in key)
         print(f"uint32_t const key[{len(key)}] = {{ {s} }}")
         print(f'uint32_t const secret[{len(secret)}] = {{')
