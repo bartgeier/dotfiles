@@ -15,8 +15,8 @@ def encipher(v, k):
     w = [0,0]
     while(n>0):
         sum.value += delta
-        y.value += ( z.value << 4 ) + k[0] ^ z.value + sum.value ^ ( z.value >> 5 ) + k[1]
-        z.value += ( y.value << 4 ) + k[2] ^ y.value + sum.value ^ ( y.value >> 5 ) + k[3]
+        y.value += (((z.value<<4) + k[0]) ^ (z.value+sum.value)) ^ ((z.value>>5) + k[1])
+        z.value += (((y.value<<4) + k[2]) ^ (y.value+sum.value)) ^ ((y.value>>5) + k[3])
         n -= 1
     w[0] = y.value
     w[1] = z.value
@@ -31,10 +31,10 @@ def decipher(v, k):
     n = 32
     w = [0,0]
     while(n>0):
-        z.value -= ( y.value << 4 ) + k[2] ^ y.value + sum.value ^ ( y.value >> 5 ) + k[3]
-        y.value -= ( z.value << 4 ) + k[0] ^ z.value + sum.value ^ ( z.value >> 5 ) + k[1]
+        z.value -= (((y.value<<4) + k[2]) ^ (y.value+sum.value)) ^ ((y.value>>5) + k[3])
+        y.value -= (((z.value<<4) + k[0]) ^ (z.value+sum.value)) ^ ((z.value>>5) + k[1])  
         sum.value -= delta
-        n -= 1
+        n -= 1       
     w[0] = y.value
     w[1] = z.value
     return w
@@ -49,7 +49,7 @@ def encode(string, key):
         secret = secret + encipher(v, key)
         i = i + 2
     if len(vector) % 2 == 1:
-        secret = secret + [vector[-1]]
+        secret = secret + [ vector[-1]+key[3] ]
     return secret 
 
 
@@ -62,7 +62,7 @@ def decode(secret, key):
         vector = vector + decipher(v, key)
         i = i + 2
     if rest == 1:
-         vector =  vector + [secret[-1]]
+         vector =  vector + [ secret[-1]-key[3] ]
     string = ''.join(chr(x) for x in vector)
     return string
 
@@ -71,22 +71,48 @@ def test_encipher_decipher():
     key = [1,2,3,4]
     v = [1385482523,639876499]
     secret = encipher(v,key)
+    print(f"v: {v}")
+    print(f"secret: {secret}");
     if v[0] == decipher(secret,key)[0] and v[1] == decipher(secret,key)[1]:
         print("test_encipher_decipher => OK")
     else:
         print("test_encipher_decipher => FAIL")
+    
+        
+def test_decipher():
+    key = [1,2,3,4]   
+    secret = [3349449178, 1799649188]
+    print(f"key: {key}")
+    print(f"secret: {secret}");
+    x = decipher(secret,key)
+    if 1385482523 == x[0] and 639876499 == x[1]:
+        print("test_decipher => OK")
+    else:
+        print("test_decipher => FAIL")   
+    print(f"deciphered: {x}")        
 
 
-def test_encode_decode():
+def test_encode_decode_0():
     key = [1234,892,3,4] # key size has to be 4 uint32_t
     str = 'Hello world 🙂'
     secret = encode(str, key)
     if str == decode(secret, key):
-        print('test_encode_decode => OK')
+        print('test_encode_decode_0 => OK')
     else:
-        print('test_encode_decode => FAIL')
+        print('test_encode_decode_0 => FAIL')
     print(decode(secret, key))
     print(secret)
+    
+def test_encode_decode_1():
+    key = [2802116239,3661675230,1810895124,447663303] # key size has to be 4 uint32_t
+    str = 'ftp://ftp_noventa:Jugofalagaru29!@185.37.75.153/c1_sw-version_logs/'
+    secret = encode(str, key)
+    if str == decode(secret, key):
+        print('test_encode_decode_1 => OK')
+    else:
+        print('test_encode_decode_1 => FAIL')
+    print(decode(secret, key))
+    print(secret)    
 
 
 def help():
@@ -94,6 +120,13 @@ def help():
     print('python3 xtea.py -h => help') 
     print('python3 xtea.py -u => unittests') 
     print("python3 xtea.py Hello World 🙂  => I'll encode it!")
+
+def output_matrix(secret,numOfRow):
+    for idx in range(len(secret)):
+        print(secret[idx], end=',')
+        if ((idx+1) % numOfRow) == 0:
+            print("")
+    print('\n};')
 
 
 if __name__ == "__main__":
@@ -104,22 +137,34 @@ if __name__ == "__main__":
         help()
     elif sys.argv[1] == '-u':
         test_encipher_decipher()
-        test_encode_decode()
+        print()
+        test_decipher()
+        print()
+        test_encode_decode_0()
+        print()
+        test_encode_decode_1()
+        print()
     else:
         str = ' '.join(sys.argv[1:])
-        key = [2802116239,3661675230,1810895124,447663303] # key size has to be 4 uint32_t
+        key = [1810895124,2802116239,3661675230,447663303] # key size has to be 4 uint32_t
         secret = encode(str,key)
         print(f'/*python3 xtea.py {str}*/')
         s = ','.join(x.__str__() for x in key)
-        print(f"uint32_t const key[{len(key)}] = {{ {s} }}")
-        print(f'uint32_t const secret[{len(secret)}] = {{')
-        idx = 0
-        numOfRows = 7
-        numOfLines = len(secret) // numOfRows + ((len(secret) % numOfRows) > 0)
-        for _ in range(numOfLines):
-            print('        ',end='')
-            for x in secret[idx:idx+numOfRows]:
-                print(x,end=',')
-            print()
-            idx = idx + 5
-        print('};')
+        print(f"std::array<uint32_t, {len(key)}> const key = {{ {s} }};")
+        print(f'std::vector<uint32_t> const secret = {{')
+        output_matrix(secret, 7)
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
