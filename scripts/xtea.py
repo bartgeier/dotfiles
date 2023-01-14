@@ -34,7 +34,7 @@ def decipher(v, k):
         z.value -= (((y.value<<4) + k[2]) ^ (y.value+sum.value)) ^ ((y.value>>5) + k[3])
         y.value -= (((z.value<<4) + k[0]) ^ (z.value+sum.value)) ^ ((z.value>>5) + k[1])  
         sum.value -= delta
-        n -= 1       
+        n -= 1
     w[0] = y.value
     w[1] = z.value
     return w
