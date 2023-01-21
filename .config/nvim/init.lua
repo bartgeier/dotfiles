@@ -166,6 +166,7 @@ vim.keymap.set('x', "p","\"_dp")       -- replaced text without losing the paste
 vim.keymap.set('x', "<leader>p", 'p')  -- replaced text with exchange the paste
 
 -- Fix and keeping cursor in postion
+vim.keymap.set('n', 'N',     'Nzzzv',   { desc = 'jump to next search dn' })
 vim.keymap.set('n', 'n',     'nzzzv',   { desc = 'jump to next search dn' })
 vim.keymap.set('n', '<c-d>', '<c-d>zz', { desc = 'half page dn' })
 vim.keymap.set('n', '<c-y>', '<c-e>j',  { desc = 'scroll one line page up cursor dn' })
