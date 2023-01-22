@@ -10,7 +10,7 @@
 
 sudo apt update && sudo apt upgrade
 sudo apt install git tmux htop wmctrl keepass2 xdotool shellcheck ripgrep gnome-tweaks python3.10-venv
-sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen # neovim dependencys
+sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake cmake-curses-gui g++ pkg-config unzip curl doxygen # neovim dependencys
 
 # https://snapcraft.io/store
 # sudo snap install snappackage1 snappackage2 snappackage3
