@@ -16,8 +16,7 @@ sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake c
 # sudo snap install snappackage1 snappackage2 snappackage3
 sudo snap install umlet-standalone
 sudo snap install whatsapp-for-linux 
-sudo snap install anki-woodrow
-
+sudo snap install anki-ppd 
 # https://flathub.org/home
 # sudo flatpak install flatpak1 flatpak2 flatpak3 -y
 
