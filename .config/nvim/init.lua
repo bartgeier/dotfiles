@@ -167,8 +167,8 @@ vim.keymap.set('n', '<leader>e', ':Ex. <CR>') -- file explorer
 -- vim.keymap.set('v', '<c-c>', '"+y')    -- copy selected into desktop clipboard
 -- vim.keymap.set('n', '<c-c>', '"+y')    -- copy selected into desktop clipboard
 -- vim.keymap.set('n', '<c-p>', '"+p')    -- paste desktop clipboard into vim
-vim.keymap.set('x', "p","\"_dp")       -- replaced text without losing the paste
-vim.keymap.set('x', "<leader>p", 'p')  -- replaced text with exchange the paste
+vim.keymap.set('x', "p","\"_dp",       { desc = 'replaced text without losing the paste'})
+vim.keymap.set('x', "<leader>p", 'p',  { desc = 'replaced text with exchange the paste'})
 
 -- Fix and keeping cursor in postion
 vim.keymap.set('n', 'N',     'Nzzzv',   { desc = 'jump to next search dn' })
@@ -194,24 +194,47 @@ vim.keymap.set("i", "<C-l>", "<C-t>",       { desc = 'intending text right =>' }
 vim.keymap.set("i", "<C-h>", "<C-d>",       { desc = 'unintending text left <=' })
 
 -- Create breaks points for undo U
-vim.keymap.set('i', ',', ',<C-g>u')
-vim.keymap.set('i', '.', '.<C-g>u')
-vim.keymap.set('i', '!', '!<C-g>u')
-vim.keymap.set('i', '?', '?<C-g>u')
+vim.keymap.set('i', ',', ',<C-g>u', { desc = 'undo break point' })
+vim.keymap.set('i', '.', '.<C-g>u', { desc = 'undo break point' })
+vim.keymap.set('i', '!', '!<C-g>u', { desc = 'undo break point' })
+vim.keymap.set('i', '?', '?<C-g>u', { desc = 'undo break point' })
 
 -- Jump between split screen
-vim.keymap.set('i', '<A-h>', '<esc><C-w>h') -- right
-vim.keymap.set('i', '<A-j>', '<esc><C-w>j') -- down
-vim.keymap.set('i', '<A-k>', '<esc><C-w>k') -- up
-vim.keymap.set('i', '<A-l>', '<esc><C-w>l') -- left
-vim.keymap.set('n', '<A-h>', '<C-w>h')      -- right
-vim.keymap.set('n', '<A-j>', '<C-w>j')      -- down
-vim.keymap.set('n', '<A-k>', '<C-w>k')      -- up
-vim.keymap.set('n', '<A-l>', '<C-w>l')      -- left
-vim.keymap.set('v', '<A-h>', '<C-w>h')      -- right
-vim.keymap.set('v', '<A-j>', '<C-w>j')      -- down
-vim.keymap.set('v', '<A-k>', '<C-w>k')      -- up
-vim.keymap.set('v', '<A-l>', '<C-w>l')      -- left
+vim.keymap.set('i', '<A-h>', '<esc><C-w>h', { desc = 'split jump right' })
+vim.keymap.set('i', '<A-j>', '<esc><C-w>j', { desc = 'split jump down' })
+vim.keymap.set('i', '<A-k>', '<esc><C-w>k', { desc = 'split jump up' })
+vim.keymap.set('i', '<A-l>', '<esc><C-w>l', { desc = 'split jump left' })
+vim.keymap.set('n', '<A-h>', '<C-w>h',      { desc = 'split jump right' })
+vim.keymap.set('n', '<A-j>', '<C-w>j',      { desc = 'split jump down' })
+vim.keymap.set('n', '<A-k>', '<C-w>k',      { desc = 'split jump up' })
+vim.keymap.set('n', '<A-l>', '<C-w>l',      { desc = 'split jump left' })
+vim.keymap.set('v', '<A-h>', '<C-w>h',      { desc = 'split jump right' })
+vim.keymap.set('v', '<A-j>', '<C-w>j',      { desc = 'split jump down' })
+vim.keymap.set('v', '<A-k>', '<C-w>k',      { desc = 'split jump up' })
+vim.keymap.set('v', '<A-l>', '<C-w>l',      { desc = 'split jump left' })
+
+-- Mark and Swap split windows
+vim.keymap.set('n', '<leader>mw', function()
+        -- Mark split window
+        vim.g.markedwinnum = vim.fn.winnr()
+        print(string.format("Marked split: %d", vim.g.markedwinnum))
+end, { desc = '[M]ark split [w]indow for swaping' })
+vim.keymap.set('n', '<leader>pw', function()
+        -- Swap split window with Marked
+        print(string.format("Swaped Marked %d with Current %d", vim.g.markedwinnum, vim.fn.winnr()))
+        -- Mark destination
+        local curNum = vim.fn.winnr()
+        local curBuf = vim.fn.bufnr("%")
+        vim.cmd(string.format("%d wincmd w", vim.g.markedwinnum))
+        -- Switch to source and shuffle dest->source
+        local markedBuf = vim.fn.bufnr("%")
+        -- Hide and open so that we aren't prompted and keep history
+        vim.cmd(string.format('hide buf %s', curBuf))
+        -- Switch to dest and shuffle source->dest
+        vim.cmd(string.format("%s . wincmd w", curNum))
+        -- Hide and open so that we aren't prompted and keep history
+        vim.cmd(string.format('hide buf %s', markedBuf))
+end, { desc = 'Swap marked split with the current split' })
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
@@ -249,3 +272,5 @@ lsp.preset('recommended')
 lsp.nvim_workspace()
 
 lsp.setup()
+
+
