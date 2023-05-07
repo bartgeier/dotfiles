@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -13,4 +14,5 @@ alias .-='cd -'
 alias ..='cd ..'
 
 alias vim=nvim
-alias sd="cd ~ && cd \$(find * -type d | fzf)" # search and jump to directory
+alias jd="cd ~ && cd \$(find * -type d | fzf) && ls -alF" # search and jump to directory
+alias js="cd ~ && cd \$(find * -type d | fzf); bash $HOME/scripts/tmux-sessionizer && ls -alF "  #search and jump to tmux session
