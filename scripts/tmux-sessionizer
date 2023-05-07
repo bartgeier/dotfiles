@@ -3,7 +3,6 @@
 # https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
 # https://superuser.com/questions/440015/restore-tmux-session-after-reboot
 # https://koenwoortman.com/tmux-sessions-should-be-nested-with-care-unset-tmux-to-force/
-tmux detach
 
 session_name=$(basename "$PWD" | tr . _)
 
