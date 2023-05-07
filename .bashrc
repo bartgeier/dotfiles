@@ -87,18 +87,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-alias cd~='cd ~'
-alias cd-='cd -'
-alias cd..='cd ..'
-alias cd.='cd ~'
-alias .='cd ~' #bash: cd: too many arguments => because . is synonym for the source command
-alias .-='cd -'
-alias ..='cd ..'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -115,7 +103,6 @@ fi
 
 # git manage dotfiles Git Bare Repository - A Better Way To Manage Dotfiles => https://youtu.be/tBoLDpTWVOM
 alias ggit='/usr/bin/git --git-dir=/home/berni/dotfiles --work-tree=/home/berni'
-alias vim=nvim
 
 
 # enable programmable completion features (you don't need to enable
