@@ -57,6 +57,5 @@ screen_two_right()
 
 
 screen_one Firefox 0
-screen_two_left WhatsApp 0
 screen_two_right Thunderbird 0
-screen_one Skype 1
+screen_two_left Skype 0
