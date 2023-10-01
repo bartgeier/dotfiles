@@ -10,7 +10,7 @@
 
 sudo apt update && sudo apt upgrade
 sudo apt install git tmux htop wmctrl keepass2 xdotool shellcheck ripgrep 
-sudo apt install gnome-tweaks  python3-pip python3.10-venv mc fzf
+sudo apt install gnome-tweaks  python3-pip python3.10-venv mc fzf fd-find
 sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake cmake-curses-gui g++ pkg-config unzip curl doxygen # neovim dependencys
 sudo apt-get install solaar # Logitech unify 
 
