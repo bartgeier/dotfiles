@@ -2,8 +2,8 @@
   "name": "Keychron K3 Pro ISO RGB",
   "vendorProductId": 875823665,
   "macros": [
+    "{KC_RALT,KC_QUOT}",
     "{KC_RALT,KC_BSLS}",
-    "",
     "",
     "",
     "",
