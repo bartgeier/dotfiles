@@ -1,0 +1,8 @@
+default partial alphanumeric_keys
+xkb_symbols "custom" {
+    include "ch(de)"
+    name[Group1] = "Swiss German (brackets)";
+
+    key <AC10> { [ braceleft,   braceright   ] };  // ö -> {   é -> }
+    key <AC11> { [ bracketleft, bracketright ] };  // ä -> [   à -> ]
+};
