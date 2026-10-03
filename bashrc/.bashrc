@@ -15,6 +15,6 @@ source "$OMARCHY_PATH/default/bash/rc"
 # jd() { cd "$(fzf --walker=dir --query="$1" --select-1 --exit-0)"; } # jump dir
 jd() {
   local dir
-  dir=$(fzf --walker=dir --filter="$1" | awk '{ print length, $0 }' | sort -n | head -1 | cut -d' ' -f2-)
-  [[ -n "$dir" ]] && cd "$dir"
+  dir=$(cd "$HOME" && fzf --walker=dir --filter="$1" | awk '{ print length, $0 }' | sort -n | head -1 | cut -d' ' -f2-)
+  [[ -n "$dir" ]] && cd "$HOME/$dir"
 }
